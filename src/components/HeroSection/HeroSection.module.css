@@ -1,0 +1,34 @@
+/* 1. Main Container */
+.heroContainer {
+  width: 100%;
+  max-width: 100%;
+  /* This ensures no scrollbars appear if the image loads slowly */
+  overflow: hidden;
+  position: relative;
+  /* Resets */
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+}
+
+/* 2. Slider Track */
+.sliderTrack {
+  display: flex;
+  width: 100%;
+  /* Height is strictly determined by the image height */
+  height: auto;
+}
+
+/* 3. Image Styling */
+.heroImage {
+  /* Forces the image to fit the SCREEN width exactly */
+  width: 100%;
+
+  /* Height adjusts automatically. 
+     Since 3.webp is tall, this will make the mobile banner tall. 
+     Since 1.webp is short/wide, this will make the desktop banner short. */
+  height: auto;
+
+  flex-shrink: 0;
+  display: block;
+}
