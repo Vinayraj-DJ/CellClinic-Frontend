@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 // Removed toggleTheme import
 import { openModal } from "../../redux/slices/modalSlice";
-import { MapPin, Mail, CalendarDays, Menu, X, Search } from "lucide-react"; // Removed Sun, Moon
+import { MapPin, CalendarDays, Menu, X, Search, PhoneCall } from "lucide-react";
 import styles from "./TopBar.module.css";
 import { catalogService } from "../../services/catalogService";
 import { getImageUrl } from "../../utils/imageHelper";
@@ -104,17 +104,14 @@ const TopBar = () => {
           <div className={styles.stripContent}>
             <div className={styles.locationPill}>
               <MapPin size={14} className={styles.icon} />
-              <span>Bengaluru | Hyderabad | Mumbai</span>
+              <span>Hyderabad</span>
             </div>
 
             <div className={styles.rightStripGroup}>
               <div className={styles.emailGroup}>
-                <a
-                  href="mailto:info@cellclinichyd.com"
-                  className={styles.contactLink}
-                >
-                  <Mail size={14} />
-                  <span>info@cellclinichyd.com</span>
+                <a href="tel:+919346532339" className={styles.contactLink}>
+                  <PhoneCall size={14} />
+                  <span>+91 93465 32339</span>
                 </a>
               </div>
 

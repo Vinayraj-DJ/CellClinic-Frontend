@@ -41,6 +41,7 @@
   padding: 4px;
   transition: color 0.2s;
 }
+
 .closeIcon:hover {
   color: #1f2937;
 }
@@ -74,7 +75,8 @@
 .inputGroup input,
 .inputGroup select {
   width: 100%;
-  padding: 12px 12px 12px 40px; /* Space for icon */
+  padding: 12px 12px 12px 40px;
+  /* Space for icon */
   border: 1px solid #e5e7eb;
   border-radius: 8px;
   font-size: 14px;
@@ -84,10 +86,25 @@
 }
 
 .inputGroup input:focus,
-.inputGroup select:focus {
+.inputGroup select:focus,
+.textareaInput:focus {
   border-color: #2563eb;
   background: white;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.textareaInput {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 80px;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #f9fafb;
 }
 
 .submitBtn {
@@ -153,9 +170,11 @@
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.1);
   }
+
   100% {
     transform: scale(1);
   }

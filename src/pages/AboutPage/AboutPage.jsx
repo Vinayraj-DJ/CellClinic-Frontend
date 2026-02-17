@@ -110,7 +110,7 @@ const philosophyData = [
     id: 2,
     icon: <Target size={32} />,
     title: "Our mission",
-    desc: "We aim to build a trustworthy brand and staff capable of providing high-quality service and speedy repairs to the seekers of mobile repair service in Mumbai, Navi Mumbai, Thane & Panvel.",
+    desc: "We aim to build a trustworthy brand and staff capable of providing high-quality service and speedy repairs to the seekers of mobile repair service in Hyderabad.",
   },
   {
     id: 3,
@@ -242,7 +242,7 @@ const AboutPage = () => {
             </p>
             <p>
               Cell Clinic was born with a mission to help lead people looking
-              for mobile repair in Hyderabad, Bangalore, and Mumbai towards a
+              for mobile repair in Hyderabad towards a
               trusted service they deserve. We offer fast, convenient, and
               reliable mobile phone repairs right at your doorstep.
             </p>

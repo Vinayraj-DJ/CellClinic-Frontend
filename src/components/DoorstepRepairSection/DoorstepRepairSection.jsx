@@ -54,7 +54,7 @@ const DoorstepRepairSection = () => {
   const dispatch = useDispatch();
 
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="images-section">
       <div className={styles.container}>
         <motion.h2
           className={styles.heading}

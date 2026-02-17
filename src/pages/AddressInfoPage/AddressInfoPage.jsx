@@ -215,8 +215,6 @@ const AddressInfoPage = () => {
                     <option value="">Choose City*</option>
                     <option value="Hyderabad">Hyderabad</option>
                     <option value="Secunderabad">Secunderabad</option>
-                    <option value="Mumbai">Mumbai</option>
-                    <option value="Bangalore">Bangalore</option>
                   </select>
                 </div>
               </div>

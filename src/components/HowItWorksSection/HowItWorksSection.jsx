@@ -69,7 +69,7 @@ const tabContent = {
       {
         id: 1,
         title: "Visit Store",
-        desc: "Walk into any of our service centers in Hyderabad, Bangalore, or Mumbai.",
+        desc: "Walk into our service center in Hyderabad.",
       },
       {
         id: 2,

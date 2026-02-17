@@ -68,8 +68,22 @@ const HeroSection = () => {
     }
   }, [currentIndex, images.length]);
 
+  const handleScroll = () => {
+    const element = document.getElementById("images-section");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className={styles.heroContainer}>
+      {/* --- Floating Book Now Button --- */}
+      <div className={styles.btnOverlay}>
+        <button className={styles.bookNowBtn} onClick={handleScroll}>
+          BOOK NOW
+        </button>
+      </div>
+
       <div
         className={styles.sliderTrack}
         style={{
