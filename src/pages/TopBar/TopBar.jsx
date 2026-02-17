@@ -16,6 +16,7 @@ const TopBar = () => {
 
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileSearchVisible, setIsMobileSearchVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [showSearchDropdown, setShowSearchDropdown] = useState(false);
@@ -137,7 +138,7 @@ const TopBar = () => {
         <div className={styles.container}>
           <div className={styles.navContent}>
             {/* Logo */}
-            <Link to="/" className={styles.logoGroup}>
+            <Link to="/" className={styles.logoGroup} onClick={() => { setIsMenuOpen(false); window.scrollTo(0, 0); }}>
               <img
                 src="/logo.webp"
                 alt="Cell Clinic Logo"
@@ -145,6 +146,15 @@ const TopBar = () => {
               />
               <span className={styles.brandName}>CELL CLINIC HYD</span>
             </Link>
+
+            {/* Mobile Search Toggle */}
+            <button
+              className={styles.mobileSearchToggle}
+              onClick={() => setIsMobileSearchVisible(!isMobileSearchVisible)}
+              aria-label="Toggle Search"
+            >
+              {isMobileSearchVisible ? <X size={20} /> : <Search size={22} />}
+            </button>
 
             {/* Desktop Links */}
             <nav className={styles.navLinks}>
@@ -177,7 +187,7 @@ const TopBar = () => {
               </Link>
 
               {/* Search Bar */}
-              <div className={styles.searchContainer} ref={searchRef}>
+              <div className={`${styles.searchContainer} ${styles.hideOnMobile}`} ref={searchRef}>
                 <div className={styles.searchInputWrapper}>
                   <Search size={18} className={styles.searchIcon} />
                   <input
@@ -235,6 +245,54 @@ const TopBar = () => {
               </button>
             </div>
           </div>
+
+          {/* Expanded Mobile Search Row */}
+          {isMobileSearchVisible && (
+            <div className={styles.mobileSearchRow} ref={searchRef}>
+              <div className={styles.mobileSearchHeaderInput}>
+                <input
+                  type="text"
+                  placeholder="Search for your device..."
+                  value={searchQuery}
+                  onChange={handleSearchChange}
+                  className={styles.mobileSearchHeaderText}
+                  autoFocus
+                />
+                <button className={styles.mobileSearchActionBtn}>
+                  <Search size={20} color="white" />
+                </button>
+              </div>
+
+              {/* Mobile Dropdown Results */}
+              {showSearchDropdown && searchResults.length > 0 && (
+                <div className={styles.searchDropdownMobile}>
+                  {searchResults.map((result, index) => (
+                    <div
+                      key={index}
+                      className={styles.searchResultItem}
+                      onClick={() => {
+                        handleSearchResultClick(result);
+                        setIsMobileSearchVisible(false);
+                      }}
+                    >
+                      <img
+                        src={getImageUrl(result.image)}
+                        alt={result.name}
+                        className={styles.searchResultImage}
+                        onError={(e) => (e.target.src = "/logo.webp")}
+                      />
+                      <div className={styles.searchResultInfo}>
+                        <div className={styles.searchResultName}>{result.fullName || result.name}</div>
+                        <div className={styles.searchResultType}>
+                          {result.type === "brand" ? "Brand" : result.brandName}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         {/* --- Mobile Menu --- */}
